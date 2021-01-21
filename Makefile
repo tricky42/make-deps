@@ -32,21 +32,21 @@ SHELL=/bin/bash -o pipefail
 .PHONY: deps test list deps-working test test-gen
 
 .bin/yq: .deps/yq.yaml
-		URL=$$(./ory dev ci deps url -o ${OS} -a ${ARCH} -c .deps/yq.yaml); \
+		@URL=$$(./ory dev ci deps url -o ${OS} -a ${ARCH} -c .deps/yq.yaml); \
 		echo "Downloading 'yq' $${URL}...."; \
 		curl -Lo .bin/yq $${URL}; \
 		chmod +x .bin/yq;
 
 .bin/kubectl: .deps/kubectl.yaml
-		URL=$$(./ory dev ci deps url -o ${OS} -a ${ARCH} -c .deps/kubectl.yaml); \
+		@URL=$$(./ory dev ci deps url -o ${OS} -a ${ARCH} -c .deps/kubectl.yaml); \
 		echo "Downloading 'kubectl' $${URL}...."; \
 		curl -Lo .bin/kubectl $${URL}; \
 		chmod +x .bin/kubectl;
 
 .bin/trivy: .deps/trivy.yaml
-		URL=$$(./ory dev ci deps url -o ${OS} -a ${ARCH} -c .deps/trivy.yaml); \
+		@URL=$$(./ory dev ci deps url -o ${OS} -a ${ARCH} -c .deps/trivy.yaml); \
 		echo "Downloading 'trivy' $${URL}...."; \
-		curl -L $${URL} | tar -xz -C .bin trivy; \
+		curl -L $${URL} | tar -xmz -C .bin trivy; \
 		chmod +x .bin/trivy;
 
 
