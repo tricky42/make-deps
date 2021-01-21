@@ -1,0 +1,6 @@
+version: 0.15.0
+url: https://github.com/aquasecurity/trivy/releases/download/v{{.Version}}/trivy_{{.Version}}_{{.Os}}-{{.Architecture}}.tar.gz 
+architecture-mapping:
+  amd64: 64bit
+os-mapping:
+  darwin: macOS
